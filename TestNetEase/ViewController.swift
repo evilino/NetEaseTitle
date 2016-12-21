@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
+    var headerView: TFCategoryHeaderView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        headerView = TFCategoryHeaderView()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        view.addSubview(headerView!)
+        headerView?.snp.makeConstraints({ [unowned self] (make) in
+            make.left.right.equalTo(self.view)
+//            make.left.equalToSuperview().offset(0)
+            make.height.equalTo(40)
+            make.top.equalTo(self.topLayoutGuide.snp.bottom)
+//            make.top.equalTo(self.view)
+        })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

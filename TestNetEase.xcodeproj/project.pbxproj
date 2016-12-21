@@ -12,9 +12,14 @@
 		94370D501E025ECB0076CC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D4E1E025ECB0076CC0D /* Main.storyboard */; };
 		94370D521E025ECB0076CC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94370D511E025ECB0076CC0D /* Assets.xcassets */; };
 		94370D551E025ECB0076CC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D531E025ECB0076CC0D /* LaunchScreen.storyboard */; };
+		94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */; };
+		94370D611E026E670076CC0D /* TFCategoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D601E026E670076CC0D /* TFCategoryScrollView.swift */; };
+		9C9645C48F5893E4BE2ABBCD /* Pods_TestNetEase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6314526DCFDA92A9199FC9 /* Pods_TestNetEase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34F4089B565BBB2373980B21 /* Pods-TestNetEase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNetEase.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestNetEase/Pods-TestNetEase.release.xcconfig"; sourceTree = "<group>"; };
+		6E6314526DCFDA92A9199FC9 /* Pods_TestNetEase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNetEase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94370D471E025ECB0076CC0D /* TestNetEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNetEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94370D4A1E025ECB0076CC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94370D4C1E025ECB0076CC0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		94370D511E025ECB0076CC0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94370D541E025ECB0076CC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94370D561E025ECB0076CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCategoryHeaderView.swift; sourceTree = "<group>"; };
+		94370D601E026E670076CC0D /* TFCategoryScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCategoryScrollView.swift; sourceTree = "<group>"; };
+		CC2D3534CC8CE313EBB8A581 /* Pods-TestNetEase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNetEase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNetEase/Pods-TestNetEase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C9645C48F5893E4BE2ABBCD /* Pods_TestNetEase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69FC91DC9B3C21030160BF95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC2D3534CC8CE313EBB8A581 /* Pods-TestNetEase.debug.xcconfig */,
+				34F4089B565BBB2373980B21 /* Pods-TestNetEase.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		94370D3E1E025ECB0076CC0D = {
 			isa = PBXGroup;
 			children = (
 				94370D491E025ECB0076CC0D /* TestNetEase */,
 				94370D481E025ECB0076CC0D /* Products */,
+				69FC91DC9B3C21030160BF95 /* Pods */,
+				E3DC214E9D2D47DF4BBF6F5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +76,22 @@
 			children = (
 				94370D4A1E025ECB0076CC0D /* AppDelegate.swift */,
 				94370D4C1E025ECB0076CC0D /* ViewController.swift */,
+				94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */,
+				94370D601E026E670076CC0D /* TFCategoryScrollView.swift */,
 				94370D4E1E025ECB0076CC0D /* Main.storyboard */,
 				94370D511E025ECB0076CC0D /* Assets.xcassets */,
 				94370D531E025ECB0076CC0D /* LaunchScreen.storyboard */,
 				94370D561E025ECB0076CC0D /* Info.plist */,
 			);
 			path = TestNetEase;
+			sourceTree = "<group>";
+		};
+		E3DC214E9D2D47DF4BBF6F5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E6314526DCFDA92A9199FC9 /* Pods_TestNetEase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94370D591E025ECB0076CC0D /* Build configuration list for PBXNativeTarget "TestNetEase" */;
 			buildPhases = (
+				B882D10D799EA2D5E1394EED /* [CP] Check Pods Manifest.lock */,
 				94370D431E025ECB0076CC0D /* Sources */,
 				94370D441E025ECB0076CC0D /* Frameworks */,
 				94370D451E025ECB0076CC0D /* Resources */,
+				E7500C2148E64CE92F29AA48 /* [CP] Embed Pods Frameworks */,
+				A64C9E79C10A46604CE01057 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +164,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A64C9E79C10A46604CE01057 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNetEase/Pods-TestNetEase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B882D10D799EA2D5E1394EED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7500C2148E64CE92F29AA48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestNetEase/Pods-TestNetEase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		94370D431E025ECB0076CC0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */,
 				94370D4D1E025ECB0076CC0D /* ViewController.swift in Sources */,
 				94370D4B1E025ECB0076CC0D /* AppDelegate.swift in Sources */,
+				94370D611E026E670076CC0D /* TFCategoryScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +339,7 @@
 		};
 		94370D5A1E025ECB0076CC0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2D3534CC8CE313EBB8A581 /* Pods-TestNetEase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNetEase/Info.plist;
@@ -268,6 +352,7 @@
 		};
 		94370D5B1E025ECB0076CC0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34F4089B565BBB2373980B21 /* Pods-TestNetEase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestNetEase/Info.plist;
@@ -297,6 +382,7 @@
 				94370D5B1E025ECB0076CC0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
