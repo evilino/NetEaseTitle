@@ -17,7 +17,7 @@ class TFCategoryHeaderView: UIView {
         super.init(frame: .zero)
         categoryScrollView = TFCategoryScrollView()
         self.addSubview(categoryScrollView!)
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = UIColor.white
         categoryScrollView?.snp.makeConstraints({ (make) in
             make.edges.equalTo(self)
         })
