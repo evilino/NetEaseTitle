@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		7B4029381E0E5F0B009D1B62 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */; };
 		7B40293A1E0E6356009D1B62 /* TFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */; };
+		7B40293E1E0E6F9C009D1B62 /* TFNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */; };
 		94370D4B1E025ECB0076CC0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D4A1E025ECB0076CC0D /* AppDelegate.swift */; };
-		94370D4D1E025ECB0076CC0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D4C1E025ECB0076CC0D /* ViewController.swift */; };
 		94370D501E025ECB0076CC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D4E1E025ECB0076CC0D /* Main.storyboard */; };
 		94370D521E025ECB0076CC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94370D511E025ECB0076CC0D /* Assets.xcassets */; };
 		94370D551E025ECB0076CC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D531E025ECB0076CC0D /* LaunchScreen.storyboard */; };
 		94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */; };
-		94370D611E026E670076CC0D /* TFCategoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D601E026E670076CC0D /* TFCategoryScrollView.swift */; };
 		9C9645C48F5893E4BE2ABBCD /* Pods_TestNetEase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6314526DCFDA92A9199FC9 /* Pods_TestNetEase.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,15 +23,14 @@
 		6E6314526DCFDA92A9199FC9 /* Pods_TestNetEase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestNetEase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
 		7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFNewsViewController.swift; sourceTree = "<group>"; };
 		94370D471E025ECB0076CC0D /* TestNetEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNetEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94370D4A1E025ECB0076CC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94370D4C1E025ECB0076CC0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94370D4F1E025ECB0076CC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94370D511E025ECB0076CC0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94370D541E025ECB0076CC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94370D561E025ECB0076CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCategoryHeaderView.swift; sourceTree = "<group>"; };
-		94370D601E026E670076CC0D /* TFCategoryScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCategoryScrollView.swift; sourceTree = "<group>"; };
 		CC2D3534CC8CE313EBB8A581 /* Pods-TestNetEase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNetEase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestNetEase/Pods-TestNetEase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +78,8 @@
 			children = (
 				7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */,
 				94370D4A1E025ECB0076CC0D /* AppDelegate.swift */,
-				94370D4C1E025ECB0076CC0D /* ViewController.swift */,
+				7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */,
 				94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */,
-				94370D601E026E670076CC0D /* TFCategoryScrollView.swift */,
 				7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */,
 				94370D4E1E025ECB0076CC0D /* Main.storyboard */,
 				94370D511E025ECB0076CC0D /* Assets.xcassets */,
@@ -225,10 +222,9 @@
 			files = (
 				7B40293A1E0E6356009D1B62 /* TFCollectionViewCell.swift in Sources */,
 				94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */,
-				94370D4D1E025ECB0076CC0D /* ViewController.swift in Sources */,
 				7B4029381E0E5F0B009D1B62 /* RandomGenerator.swift in Sources */,
 				94370D4B1E025ECB0076CC0D /* AppDelegate.swift in Sources */,
-				94370D611E026E670076CC0D /* TFCategoryScrollView.swift in Sources */,
+				7B40293E1E0E6F9C009D1B62 /* TFNewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

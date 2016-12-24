@@ -1,18 +1,22 @@
 //
-//  ViewController.swift
+//  TFNewsViewController.swift
 //  TestNetEase
 //
-//  Created by tiantengfei on 2016/12/15.
+//  Created by 田腾飞 on 2016/12/24.
 //  Copyright © 2016年 tiantengfei. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController {
+protocol TFNewsViewControllerDelegate: NSObjectProtocol {
+    func contentViewController(viewController: TFNewsViewController, scrollTo index: Int)
+}
 
+class TFNewsViewController: UIViewController {
     var headerView: TFCategoryHeaderView!
     var contentView: UICollectionView!
+    weak var delegate: TFNewsViewControllerDelegate?
+    var currentOffset: Float = 0.0
     var categories: [String] = ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
     
     override func viewDidLoad() {
@@ -56,7 +60,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension TFNewsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -76,14 +80,21 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension TFNewsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        delegate?.contentViewController(viewController: self, scrollTo: indexPath.item)
+    }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        currentOffset = Float(scrollView.contentOffset.x)
+        print(currentOffset)
+    }
 }
 
-extension ViewController: TFCategoryHeaderViewDelegate {
-    func categoryHeaderViewDidSelectedButton(with index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
-        contentView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+extension TFNewsViewController: TFCategoryHeaderViewDelegate {
+    internal func categoryHeaderView(headerView: TFCategoryHeaderView, selectedIndex: Int) {
+        let indexPath = IndexPath(item: selectedIndex, section: 0)
+        contentView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
 }
 
