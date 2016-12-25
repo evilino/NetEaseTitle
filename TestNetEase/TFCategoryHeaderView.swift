@@ -17,8 +17,8 @@ class TFCategoryHeaderView: UIView {
     fileprivate var categoryScrollView: TFCategoryScrollView!
     weak var delegate: TFCategoryHeaderViewDelegate?
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         categoryScrollView = TFCategoryScrollView()
         self.addSubview(categoryScrollView)
         self.backgroundColor = UIColor.white
@@ -30,6 +30,14 @@ class TFCategoryHeaderView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func adjustTitle(to index: Int, scale: Float) {
+        categoryScrollView.adjustTitle(to: index, scale: scale)
+    }
+    
+    func selectTitle(of index: Int) {
+        categoryScrollView.selectButton(withFrom: categoryScrollView.currentIndex, to: index)
     }
 }
 
@@ -48,6 +56,7 @@ private protocol TFCategoryScrollViewDelegate: NSObjectProtocol {
 private class TFCategoryScrollView: UIScrollView {
     weak var categoryDelegate: TFCategoryScrollViewDelegate?
     var currentIndex: Int = 0
+    var colorDigit: Float = 209.0
     
     var categories: [String] = ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
     
@@ -57,7 +66,7 @@ private class TFCategoryScrollView: UIScrollView {
         showsVerticalScrollIndicator = false
         
         setupButtonView()
-        selectButton(withFrom: 0, to: 0)
+        selectButton(withFrom: currentIndex, to: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,7 +79,7 @@ private class TFCategoryScrollView: UIScrollView {
             button.setTitle(category, for: .normal)
             button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-            button.setTitleColor(UIColor.red, for: .normal)
+            button.setTitleColor(.black, for: .normal)
             button.tag = index
             self.addSubview(button)
             
@@ -95,17 +104,46 @@ private class TFCategoryScrollView: UIScrollView {
         categoryDelegate?.categoryScrollView(scrollView: self, selectedButtonIndex: sender.tag)
     }
     
-    /// 选中某个标题
     func selectButton(withFrom currentIndex: Int, to toIndex: Int) {
+        let redColor = UIColor(red: CGFloat(colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1)
+        
+        if currentIndex == 0 && toIndex == 0 {
+            let currentButton = subviews[currentIndex] as! UIButton
+            currentButton.setTitleColor(redColor, for: .normal)
+            currentButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            return
+        }
+        
+        if currentIndex == toIndex {
+            return
+        }
+        
         let currentButton = subviews[currentIndex] as! UIButton
         let desButton = subviews[toIndex] as! UIButton
         
-        currentButton.setTitleColor(.red, for: .normal)
+        currentButton.setTitleColor(.black, for: .normal)
+        desButton.setTitleColor(redColor, for: .normal)
         currentButton.transform = CGAffineTransform(scaleX: 1, y: 1)
-        desButton.setTitleColor(.green, for: .normal)
         desButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
         self.currentIndex = toIndex
+    }
+    
+    func adjustTitle(to index: Int, scale: Float) {
+        let currentButton = subviews[currentIndex] as! UIButton
+        let desButton = subviews[index] as! UIButton
+        
+        if index > currentIndex {
+            currentButton.setTitleColor(UIColor(red: CGFloat((1-scale) * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)
+            currentButton.transform = CGAffineTransform(scaleX: CGFloat(1.2 - 0.2 * scale), y: CGFloat(1.2 - 0.2 * scale))
+            desButton.setTitleColor(UIColor(red: CGFloat(scale * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)
+            desButton.transform = CGAffineTransform(scaleX: CGFloat(1.0 + 0.2 * scale), y: CGFloat(1.0 + 0.2 * scale))
+        } else {
+            desButton.setTitleColor(UIColor(red: CGFloat((1-scale) * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)
+            currentButton.setTitleColor(UIColor(red: CGFloat(scale * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)
+            desButton.transform = CGAffineTransform(scaleX: CGFloat(1.2 - 0.2 * scale), y: CGFloat(1.2 - 0.2 * scale))
+            currentButton.transform = CGAffineTransform(scaleX: CGFloat(1.0 + 0.2 * scale), y: CGFloat(1.0 + 0.2 * scale))
+        }
     }
 }
 
