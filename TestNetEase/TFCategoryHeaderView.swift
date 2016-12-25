@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol TFCategoryHeaderViewDelegate: NSObjectProtocol {
     func categoryHeaderView(headerView: TFCategoryHeaderView, selectedIndex: Int)
