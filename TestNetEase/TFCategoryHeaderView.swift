@@ -32,8 +32,8 @@ class TFCategoryHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func adjustTitle(to index: Int, scale: Float) {
-        categoryScrollView.adjustTitle(to: index, scale: scale)
+    func adjustTitle(from fromIndex: Int, to toIndex: Int, scale: Float) {
+        categoryScrollView.adjustTitle(from: fromIndex, to: toIndex, scale: scale)
     }
     
     func selectTitle(of index: Int) {
@@ -88,9 +88,9 @@ private class TFCategoryScrollView: UIScrollView {
                 
                 if self.subviews.count == 1 {
                     make.left.equalTo(self.snp.left).offset(15)
-                } else if self.subviews.count == self.categories.count-1 {
+                } else if self.subviews.count == self.categories.count {
                     make.left.equalTo((self.subviews[self.subviews.count - 2].snp.right)).offset(15)
-                    make.right.equalTo(self)
+                    make.right.equalTo(self).offset(-15)
                 } else {
                     make.left.equalTo((self.subviews[self.subviews.count - 2].snp.right)).offset(15)
                 }
@@ -129,11 +129,11 @@ private class TFCategoryScrollView: UIScrollView {
         self.currentIndex = toIndex
     }
     
-    func adjustTitle(to index: Int, scale: Float) {
-        let currentButton = subviews[currentIndex] as! UIButton
-        let desButton = subviews[index] as! UIButton
+    func adjustTitle(from fromIndex: Int, to toIndex: Int, scale: Float) {
+        let currentButton = subviews[fromIndex] as! UIButton
+        let desButton = subviews[toIndex] as! UIButton
         
-        if index > currentIndex {
+        if toIndex > fromIndex {
             currentButton.setTitleColor(UIColor(red: CGFloat((1-scale) * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)
             currentButton.transform = CGAffineTransform(scaleX: CGFloat(1.2 - 0.2 * scale), y: CGFloat(1.2 - 0.2 * scale))
             desButton.setTitleColor(UIColor(red: CGFloat(scale * colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1), for: .normal)

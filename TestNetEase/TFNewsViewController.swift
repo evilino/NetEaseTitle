@@ -17,7 +17,8 @@ class TFNewsViewController: UIViewController {
     var contentView: UICollectionView!
     weak var delegate: TFNewsViewControllerDelegate?
     var currentOffsetX: Float = 0.0
-    var currentIndex = 0
+    var toIndex = 0
+    var oldIndex = 0
     var isTapSelected = false
     var categories: [String] = ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
     
@@ -91,11 +92,7 @@ extension TFNewsViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         currentOffsetX = Float(scrollView.contentOffset.x)
         isTapSelected = false
-    }
-    
-    /// 停止拖拽的时候
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    
+        currentOffsetX = Float(scrollView.contentOffset.x)
     }
     
     /// 滑动过程中
@@ -109,17 +106,22 @@ extension TFNewsViewController: UIScrollViewDelegate {
             return
         }
         
-        if Float(scrollView.contentOffset.x) > currentOffsetX { // 向右滑动
-            let desIndex = currentIndex + 1
-            headerView.adjustTitle(to: desIndex, scale: scale)
+        let index = Int(scrollView.contentOffset.x / UIScreen.main.bounds.size.width)
+        let diff = Float(scrollView.contentOffset.x) - currentOffsetX
+        
+        if diff > 0.0 { // 向右滑动
+            toIndex = index + 1
+            oldIndex = index
         } else { //向左滑动
-            if currentIndex == 0 {
-                return
-            }
-            
-            let desIndex = currentIndex - 1
-            headerView.adjustTitle(to: desIndex, scale: scale)
+            oldIndex = index + 1
+            toIndex = index
         }
+        
+        if toIndex > categories.count - 1 || toIndex < 0 || oldIndex > categories.count - 1 {
+            return
+        }
+        
+        headerView.adjustTitle(from: oldIndex, to: toIndex, scale: scale)
     }
     
     /// 滑动停止
@@ -127,10 +129,13 @@ extension TFNewsViewController: UIScrollViewDelegate {
         if isTapSelected {
             return
         }
-        print("adjustTitle: ---\(Float(scrollView.contentOffset.x))")
+
         currentOffsetX = Float(scrollView.contentOffset.x)
-        currentIndex = Int(currentOffsetX / Float(UIScreen.main.bounds.width))
-        headerView.selectTitle(of: currentIndex)
+        toIndex = Int(currentOffsetX / Float(UIScreen.main.bounds.width))
+        if toIndex > categories.count - 1 || toIndex < 0 {
+            return
+        }
+        headerView.selectTitle(of: toIndex)
     }
 }
 
@@ -139,7 +144,6 @@ extension TFNewsViewController: TFCategoryHeaderViewDelegate {
         let indexPath = IndexPath(item: selectedIndex, section: 0)
         isTapSelected = true
         contentView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        currentIndex = selectedIndex
     }
 }
 
