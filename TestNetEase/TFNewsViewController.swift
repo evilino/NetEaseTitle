@@ -20,7 +20,9 @@ class TFNewsViewController: UIViewController {
     var toIndex = 0
     var oldIndex = 0
     var isTapSelected = false
-    var categories: [String] = ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
+    lazy var categories: [String] = {
+        return ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,7 @@ class TFNewsViewController: UIViewController {
                 make.height.equalTo(40)
                 make.top.equalTo(self.topLayoutGuide.snp.bottom)
             })
+            headerView.categories = categories
         }
         
         do {

@@ -15,6 +15,11 @@ protocol TFCategoryHeaderViewDelegate: NSObjectProtocol {
 class TFCategoryHeaderView: UIView {
     fileprivate var categoryScrollView: TFCategoryScrollView!
     weak var delegate: TFCategoryHeaderViewDelegate?
+    var categories: [String]? {
+        didSet {
+            categoryScrollView.categories = categories
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,24 +60,28 @@ private protocol TFCategoryScrollViewDelegate: NSObjectProtocol {
 private class TFCategoryScrollView: UIScrollView {
     weak var categoryDelegate: TFCategoryScrollViewDelegate?
     var currentIndex: Int = 0
-    var colorDigit: Float = 209.0
+    private var colorDigit: Float = 209.0
     
-    var categories: [String] = ["头条", "独家", "NBA", "社会", "历史", "军事", "航空", "要闻", "娱乐", "财经", "趣闻","头条", "独家", "NBA", "社会", "历史"]
+    var categories: [String]?  {
+        didSet {
+            if let categories = categories {
+                setupButtonView(with: categories)
+                selectButton(withFrom: currentIndex, to: 0)
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
-        
-        setupButtonView()
-        selectButton(withFrom: currentIndex, to: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupButtonView() {
+    func setupButtonView(with categories: [String]) {
         for (index, category) in categories.enumerated() {
             let button = UIButton()
             button.setTitle(category, for: .normal)
@@ -87,14 +96,13 @@ private class TFCategoryScrollView: UIScrollView {
                 
                 if self.subviews.count == 1 {
                     make.left.equalTo(self.snp.left).offset(15)
-                } else if self.subviews.count == self.categories.count {
+                } else if self.subviews.count == self.categories?.count {
                     make.left.equalTo((self.subviews[self.subviews.count - 2].snp.right)).offset(15)
                     make.right.equalTo(self).offset(-15)
                 } else {
                     make.left.equalTo((self.subviews[self.subviews.count - 2].snp.right)).offset(15)
                 }
             })
-            
         }
     }
     
