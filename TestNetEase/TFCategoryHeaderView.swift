@@ -111,6 +111,7 @@ private class TFCategoryScrollView: UIScrollView {
         categoryDelegate?.categoryScrollView(scrollView: self, selectedButtonIndex: sender.tag)
     }
     
+    /// 选中某个标题
     func selectButton(withFrom currentIndex: Int, to toIndex: Int) {
         let redColor = UIColor(red: CGFloat(colorDigit / 255.0), green: 0.0, blue: 0.0, alpha: 1)
         
@@ -136,6 +137,7 @@ private class TFCategoryScrollView: UIScrollView {
         self.currentIndex = toIndex
     }
     
+    /// 调整标题的样式
     func adjustTitle(from fromIndex: Int, to toIndex: Int, scale: Float) {
         let currentButton = subviews[fromIndex] as! UIButton
         let desButton = subviews[toIndex] as! UIButton

@@ -50,7 +50,7 @@ class TFNewsViewController: UIViewController {
             contentView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
             contentView.collectionViewLayout = flowLayout
             contentView.register(TFCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-            contentView.backgroundColor = UIColor.red
+            contentView.backgroundColor = .white
             contentView.dataSource = self
             contentView.delegate = self
             contentView.isPagingEnabled = true
