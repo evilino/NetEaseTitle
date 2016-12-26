@@ -137,13 +137,13 @@ private class TFCategoryScrollView: UIScrollView {
         let screenMidX = UIScreen.main.bounds.width / 2
         let desButtonMidX = desButton.frame.minX + desButton.frame.width / 2
         let buttonScrollViewDiff = self.contentSize.width - desButtonMidX
-        if buttonScrollViewDiff <= screenMidX {
+        if buttonScrollViewDiff <= screenMidX { //如果最右边与midX的差值小于屏幕宽度的一半，滑动到最右边
             let scrollOffset = CGPoint(x: self.contentSize.width - UIScreen.main.bounds.width, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
-        } else if desButtonMidX > screenMidX {
+        } else if desButtonMidX > screenMidX {  //正常滑动
             let scrollOffset = CGPoint(x: desButtonMidX - screenMidX, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
-        } else if desButtonMidX <= screenMidX {
+        } else if desButtonMidX <= screenMidX { //如果左边的button的midX小于屏幕宽度的一般，滑动到最左边
             let scrollOffset = CGPoint(x: 0, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
         }
