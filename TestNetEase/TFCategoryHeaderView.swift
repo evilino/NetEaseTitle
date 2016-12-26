@@ -134,6 +134,16 @@ private class TFCategoryScrollView: UIScrollView {
         currentButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         desButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
+        let screenMidX = UIScreen.main.bounds.width / 2
+        let desButtonMidX = desButton.frame.minX + desButton.frame.width / 2
+        if desButtonMidX > screenMidX {
+            let scrollOffset = CGPoint(x: desButtonMidX - screenMidX, y: 0)
+            self.setContentOffset(scrollOffset, animated: true)
+        } else {
+            let scrollOffset = CGPoint(x: 0, y: 0)
+            self.setContentOffset(scrollOffset, animated: true)
+        }
+        
         self.currentIndex = toIndex
     }
     
