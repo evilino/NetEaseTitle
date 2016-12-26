@@ -136,10 +136,14 @@ private class TFCategoryScrollView: UIScrollView {
         
         let screenMidX = UIScreen.main.bounds.width / 2
         let desButtonMidX = desButton.frame.minX + desButton.frame.width / 2
-        if desButtonMidX > screenMidX {
+        let buttonScrollViewDiff = self.contentSize.width - desButtonMidX
+        if buttonScrollViewDiff <= screenMidX {
+            let scrollOffset = CGPoint(x: self.contentSize.width - UIScreen.main.bounds.width, y: 0)
+            self.setContentOffset(scrollOffset, animated: true)
+        } else if desButtonMidX > screenMidX {
             let scrollOffset = CGPoint(x: desButtonMidX - screenMidX, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
-        } else {
+        } else if desButtonMidX <= screenMidX {
             let scrollOffset = CGPoint(x: 0, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
         }
