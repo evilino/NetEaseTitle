@@ -1,5 +1,5 @@
 //
-//  TFNewsViewController.swift
+//  NewsViewController.swift
 //  TestNetEase
 //
 //  Created by 田腾飞 on 2016/12/24.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol TFNewsViewControllerDelegate: NSObjectProtocol {
-    func contentViewController(viewController: TFNewsViewController, scrollTo index: Int)
+protocol NewsViewControllerDelegate: NSObjectProtocol {
+    func contentViewController(viewController: NewsViewController, scrollTo index: Int)
 }
 
-class TFNewsViewController: UIViewController {
-    var headerView: TFCategoryHeaderView!
+class NewsViewController: UIViewController {
+    var headerView: CategoryHeaderView!
     var contentView: UICollectionView!
-    weak var delegate: TFNewsViewControllerDelegate?
+    weak var delegate: NewsViewControllerDelegate?
     var currentOffsetX: Float = 0.0
     var toIndex = 0
     var oldIndex = 0
@@ -29,7 +29,7 @@ class TFNewsViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         do {
-            headerView = TFCategoryHeaderView()
+            headerView = CategoryHeaderView()
             headerView.delegate = self
             view.addSubview(headerView)
             headerView.snp.makeConstraints({ [unowned self] (make) in
@@ -49,7 +49,7 @@ class TFNewsViewController: UIViewController {
             
             contentView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
             contentView.collectionViewLayout = flowLayout
-            contentView.register(TFCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+            contentView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
             contentView.backgroundColor = .white
             contentView.dataSource = self
             contentView.delegate = self
@@ -66,7 +66,7 @@ class TFNewsViewController: UIViewController {
 
 }
 
-extension TFNewsViewController: UICollectionViewDataSource {
+extension NewsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -76,7 +76,7 @@ extension TFNewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TFCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell
         guard let currentCell = cell else {
             return cell!
         }
@@ -88,11 +88,11 @@ extension TFNewsViewController: UICollectionViewDataSource {
     }
 }
 
-extension TFNewsViewController: UICollectionViewDelegate {
+extension NewsViewController: UICollectionViewDelegate {
     
 }
 
-extension TFNewsViewController: UIScrollViewDelegate {
+extension NewsViewController: UIScrollViewDelegate {
     /// 开始拖拽的时候
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         currentOffsetX = Float(scrollView.contentOffset.x)
@@ -144,8 +144,8 @@ extension TFNewsViewController: UIScrollViewDelegate {
     }
 }
 
-extension TFNewsViewController: TFCategoryHeaderViewDelegate {
-    internal func categoryHeaderView(headerView: TFCategoryHeaderView, selectedIndex: Int) {
+extension NewsViewController: CategoryHeaderViewDelegate {
+    internal func categoryHeaderView(headerView: CategoryHeaderView, selectedIndex: Int) {
         let indexPath = IndexPath(item: selectedIndex, section: 0)
         isTapSelected = true
         contentView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)

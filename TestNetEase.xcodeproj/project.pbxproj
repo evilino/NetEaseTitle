@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B4029381E0E5F0B009D1B62 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */; };
-		7B40293A1E0E6356009D1B62 /* TFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */; };
-		7B40293E1E0E6F9C009D1B62 /* TFNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */; };
+		7B40293A1E0E6356009D1B62 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4029391E0E6356009D1B62 /* CollectionViewCell.swift */; };
+		7B40293E1E0E6F9C009D1B62 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B40293D1E0E6F9C009D1B62 /* NewsViewController.swift */; };
 		7B7A5EBC1E0FEBE60011073A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7B7A5E9A1E0FEBE60011073A /* LICENSE */; };
 		7B7A5EBD1E0FEBE60011073A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A5E9B1E0FEBE60011073A /* README.md */; };
 		7B7A5EBE1E0FEBE60011073A /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A5E9D1E0FEBE60011073A /* Constraint.swift */; };
@@ -47,13 +47,13 @@
 		94370D501E025ECB0076CC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D4E1E025ECB0076CC0D /* Main.storyboard */; };
 		94370D521E025ECB0076CC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94370D511E025ECB0076CC0D /* Assets.xcassets */; };
 		94370D551E025ECB0076CC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94370D531E025ECB0076CC0D /* LaunchScreen.storyboard */; };
-		94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */; };
+		94370D5F1E026C270076CC0D /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94370D5E1E026C270076CC0D /* CategoryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
-		7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCollectionViewCell.swift; sourceTree = "<group>"; };
-		7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFNewsViewController.swift; sourceTree = "<group>"; };
+		7B4029391E0E6356009D1B62 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7B40293D1E0E6F9C009D1B62 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		7B7A5E9A1E0FEBE60011073A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7B7A5E9B1E0FEBE60011073A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7B7A5E9D1E0FEBE60011073A /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		94370D511E025ECB0076CC0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94370D541E025ECB0076CC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94370D561E025ECB0076CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCategoryHeaderView.swift; sourceTree = "<group>"; };
+		94370D5E1E026C270076CC0D /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,9 +177,9 @@
 				7B7A5E991E0FEBE60011073A /* SnapKit */,
 				7B4029371E0E5F0B009D1B62 /* RandomGenerator.swift */,
 				94370D4A1E025ECB0076CC0D /* AppDelegate.swift */,
-				7B40293D1E0E6F9C009D1B62 /* TFNewsViewController.swift */,
-				94370D5E1E026C270076CC0D /* TFCategoryHeaderView.swift */,
-				7B4029391E0E6356009D1B62 /* TFCollectionViewCell.swift */,
+				7B40293D1E0E6F9C009D1B62 /* NewsViewController.swift */,
+				94370D5E1E026C270076CC0D /* CategoryHeaderView.swift */,
+				7B4029391E0E6356009D1B62 /* CollectionViewCell.swift */,
 				94370D4E1E025ECB0076CC0D /* Main.storyboard */,
 				94370D511E025ECB0076CC0D /* Assets.xcassets */,
 				94370D531E025ECB0076CC0D /* LaunchScreen.storyboard */,
@@ -270,11 +270,11 @@
 				7B7A5EBF1E0FEBE60011073A /* ConstraintAttributes.swift in Sources */,
 				7B7A5EDA1E0FEBE60011073A /* LayoutConstraint.swift in Sources */,
 				7B7A5EC31E0FEBE60011073A /* ConstraintDSL.swift in Sources */,
-				7B40293A1E0E6356009D1B62 /* TFCollectionViewCell.swift in Sources */,
+				7B40293A1E0E6356009D1B62 /* CollectionViewCell.swift in Sources */,
 				7B7A5EBE1E0FEBE60011073A /* Constraint.swift in Sources */,
 				7B7A5EC01E0FEBE60011073A /* ConstraintConfig.swift in Sources */,
 				7B7A5ECF1E0FEBE60011073A /* ConstraintMakerPriortizable.swift in Sources */,
-				94370D5F1E026C270076CC0D /* TFCategoryHeaderView.swift in Sources */,
+				94370D5F1E026C270076CC0D /* CategoryHeaderView.swift in Sources */,
 				7B7A5ED21E0FEBE60011073A /* ConstraintOffsetTarget.swift in Sources */,
 				7B7A5ED91E0FEBE60011073A /* Debugging.swift in Sources */,
 				7B7A5EC71E0FEBE60011073A /* ConstraintLayoutGuide.swift in Sources */,
@@ -289,7 +289,7 @@
 				7B4029381E0E5F0B009D1B62 /* RandomGenerator.swift in Sources */,
 				7B7A5EC11E0FEBE60011073A /* ConstraintConstantTarget.swift in Sources */,
 				94370D4B1E025ECB0076CC0D /* AppDelegate.swift in Sources */,
-				7B40293E1E0E6F9C009D1B62 /* TFNewsViewController.swift in Sources */,
+				7B40293E1E0E6F9C009D1B62 /* NewsViewController.swift in Sources */,
 				7B7A5ECA1E0FEBE60011073A /* ConstraintLayoutSupportDSL.swift in Sources */,
 				7B7A5EC21E0FEBE60011073A /* ConstraintDescription.swift in Sources */,
 				7B7A5EC51E0FEBE60011073A /* ConstraintInsetTarget.swift in Sources */,

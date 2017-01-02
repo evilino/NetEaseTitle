@@ -1,5 +1,5 @@
 //
-//  TFCategoryHeaderView.swift
+//  CategoryHeaderView.swift
 //  TestNetEase
 //
 //  Created by tiantengfei on 2016/12/15.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol TFCategoryHeaderViewDelegate: NSObjectProtocol {
-    func categoryHeaderView(headerView: TFCategoryHeaderView, selectedIndex: Int)
+protocol CategoryHeaderViewDelegate: NSObjectProtocol {
+    func categoryHeaderView(headerView: CategoryHeaderView, selectedIndex: Int)
 }
 
-class TFCategoryHeaderView: UIView {
-    fileprivate var categoryScrollView: TFCategoryScrollView!
-    weak var delegate: TFCategoryHeaderViewDelegate?
+class CategoryHeaderView: UIView {
+    fileprivate var categoryScrollView: CategoryScrollView!
+    weak var delegate: CategoryHeaderViewDelegate?
     var categories: [String]? {
         didSet {
             categoryScrollView.categories = categories
@@ -23,7 +23,7 @@ class TFCategoryHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        categoryScrollView = TFCategoryScrollView()
+        categoryScrollView = CategoryScrollView()
         self.addSubview(categoryScrollView)
         self.backgroundColor = UIColor.white
         categoryScrollView.categoryDelegate = self
@@ -45,20 +45,20 @@ class TFCategoryHeaderView: UIView {
     }
 }
 
-extension TFCategoryHeaderView: TFCategoryScrollViewDelegate {
-    fileprivate func categoryScrollView(scrollView: TFCategoryScrollView, selectedButtonIndex: Int) {
+extension CategoryHeaderView: CategoryScrollViewDelegate {
+    fileprivate func categoryScrollView(scrollView: CategoryScrollView, selectedButtonIndex: Int) {
         delegate?.categoryHeaderView(headerView: self, selectedIndex: selectedButtonIndex)
     }
 }
 
-//MARK: - TFCategoryScrollView
+//MARK: - CategoryScrollView
 
-private protocol TFCategoryScrollViewDelegate: NSObjectProtocol {
-    func categoryScrollView(scrollView: TFCategoryScrollView, selectedButtonIndex: Int)
+private protocol CategoryScrollViewDelegate: NSObjectProtocol {
+    func categoryScrollView(scrollView: CategoryScrollView, selectedButtonIndex: Int)
 }
 
-private class TFCategoryScrollView: UIScrollView {
-    weak var categoryDelegate: TFCategoryScrollViewDelegate?
+private class CategoryScrollView: UIScrollView {
+    weak var categoryDelegate: CategoryScrollViewDelegate?
     var currentIndex: Int = 0
     private var colorDigit: Float = 209.0
     

@@ -1,5 +1,5 @@
 //
-//  TFCollectionViewCell.swift
+//  CollectionViewCell.swift
 //  TestNetEase
 //
 //  Created by 田腾飞 on 2016/12/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TFCollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: UICollectionViewCell {
     public var title: String? {
         didSet {
             titleLabel.text = title
