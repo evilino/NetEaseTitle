@@ -56,16 +56,6 @@ class NewsViewController: UIViewController {
     }
 }
 
-extension NewsViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-}
-
 extension NewsViewController: HeaderViewDelegate {
     func categoryHeaderView(headerView: HeaderView, selectedIndex: Int) {
         let indexPath = IndexPath(item: selectedIndex, section: 0)
