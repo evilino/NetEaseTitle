@@ -1,20 +1,24 @@
 //
-//  CategoryHeaderView.swift
-//  TestNetEase
+//  HomeHeaderView.swift
+//  TouTiao
 //
-//  Created by tiantengfei on 2016/12/15.
-//  Copyright © 2016年 tiantengfei. All rights reserved.
+//  Created by 田腾飞 on 2016/12/17.
+//  Copyright © 2016年 田腾飞. All rights reserved.
 //
 
 import UIKit
 
-protocol CategoryHeaderViewDelegate: NSObjectProtocol {
-    func categoryHeaderView(headerView: CategoryHeaderView, selectedIndex: Int)
+// 屏幕的宽高
+let kScreenWidth = UIScreen.main.bounds.width
+let kScreenHeight = UIScreen.main.bounds.height
+
+protocol HeaderViewDelegate: NSObjectProtocol {
+    func categoryHeaderView(headerView: HeaderView, selectedIndex: Int)
 }
 
-class CategoryHeaderView: UIView {
+class HeaderView: UIView {
     fileprivate var categoryScrollView: CategoryScrollView!
-    weak var delegate: CategoryHeaderViewDelegate?
+    weak var delegate: HeaderViewDelegate?
     var categories: [String]? {
         didSet {
             categoryScrollView.categories = categories
@@ -25,7 +29,7 @@ class CategoryHeaderView: UIView {
         super.init(frame: frame)
         categoryScrollView = CategoryScrollView()
         self.addSubview(categoryScrollView)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.gray
         categoryScrollView.categoryDelegate = self
         categoryScrollView.snp.makeConstraints({ (make) in
             make.edges.equalTo(self)
@@ -45,7 +49,7 @@ class CategoryHeaderView: UIView {
     }
 }
 
-extension CategoryHeaderView: CategoryScrollViewDelegate {
+extension HeaderView: CategoryScrollViewDelegate {
     fileprivate func categoryScrollView(scrollView: CategoryScrollView, selectedButtonIndex: Int) {
         delegate?.categoryHeaderView(headerView: self, selectedIndex: selectedButtonIndex)
     }
@@ -65,8 +69,10 @@ private class CategoryScrollView: UIScrollView {
     var categories: [String]?  {
         didSet {
             if let categories = categories {
-                setupButtonView(with: categories)
-                selectButton(withFrom: currentIndex, to: 0)
+                if categories.count > 0 {
+                    setupButtonView(with: categories)
+                    selectButton(withFrom: currentIndex, to: 0)
+                }
             }
         }
     }
@@ -134,11 +140,11 @@ private class CategoryScrollView: UIScrollView {
         currentButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         desButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
-        let screenMidX = UIScreen.main.bounds.width / 2
+        let screenMidX = kScreenWidth / 2
         let desButtonMidX = desButton.frame.minX + desButton.frame.width / 2
         let buttonScrollViewDiff = self.contentSize.width - desButtonMidX
         if buttonScrollViewDiff <= screenMidX { //如果最右边与midX的差值小于屏幕宽度的一半，滑动到最右边
-            let scrollOffset = CGPoint(x: self.contentSize.width - UIScreen.main.bounds.width, y: 0)
+            let scrollOffset = CGPoint(x: self.contentSize.width - kScreenWidth, y: 0)
             self.setContentOffset(scrollOffset, animated: true)
         } else if desButtonMidX > screenMidX {  //正常滑动
             let scrollOffset = CGPoint(x: desButtonMidX - screenMidX, y: 0)
@@ -169,5 +175,3 @@ private class CategoryScrollView: UIScrollView {
         }
     }
 }
-
-
